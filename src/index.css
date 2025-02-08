@@ -31,3 +31,23 @@
     flex-direction: column;
     padding: 1rem;
 }
+.section{
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    color: white;
+}
+
+.section__input, .section__temperature{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--section-overlay);
+}
+.section__input>input{
+    border: 0.8px solid white;
+    border-radius: 0.4rem;
+    background-color: transparent;
+    color: white;
+    padding: 0.5rem;
+}
