@@ -3,8 +3,8 @@ import React from 'react'
 const Description = () => {
   return (
     <div className='section section__description'>
-      <div className='card'>
-        
+      <div className='discription__card-icon'>
+
       </div>
     </div>
   )
