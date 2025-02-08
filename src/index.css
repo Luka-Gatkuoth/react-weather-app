@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap");
 
 :root{
     --section-overlay: rgba(0, 0,0,0.7);
@@ -50,4 +50,9 @@
     background-color: transparent;
     color: white;
     padding: 0.5rem;
+    font-size: 20px;
+    font-weight: 300px;
+}
+.section__input>input:focus{
+    outline: none;
 }
