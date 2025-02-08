@@ -1,5 +1,5 @@
 import hotImage from "./assets/hot.jpg";
-import coldImage from "./assets/cold.jpg";
+// import coldImage from "./assets/cold.jpg";
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
             </diV>
           </div>
           {/* bottom description */}
-          
+
         </div>
       </div>
     </div>
