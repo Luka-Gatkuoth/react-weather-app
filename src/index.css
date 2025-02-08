@@ -74,3 +74,11 @@
     align-items: center;
     justify-content: center;
 }
+.weather__info h3{
+    font-size: 18px;
+    font-weight: 300;
+    text-transform: capitalize;
+}
+.temperature h2{
+    font-size: 24px;
+}
