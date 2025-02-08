@@ -11,7 +11,7 @@ function App() {
             <button>°F</button>
           </div>
           <div className="section section__temperature">
-            <div className="icon">
+            <div className="weather__info">
               <h3>London, GB</h3>
               <p>date</p>
               {/* add image here from open weather api */}
