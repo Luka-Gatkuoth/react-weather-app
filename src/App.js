@@ -1,5 +1,6 @@
 import hotImage from "./assets/hot.jpg";
 // import coldImage from "./assets/cold.jpg";
+import Description from "./components/Description";
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
             </diV>
           </div>
           {/* bottom description */}
-
+          <Description/>
         </div>
       </div>
     </div>
