@@ -44,15 +44,27 @@
     justify-content: space-between;
     background-color: var(--section-overlay);
 }
-.section__input>input{
+.section__input input{
     border: 0.8px solid white;
     border-radius: 0.4rem;
     background-color: transparent;
     color: white;
     padding: 0.5rem;
     font-size: 20px;
-    font-weight: 300px;
+    font-weight: 200px;
 }
 .section__input>input:focus{
     outline: none;
+}
+.section__input button{
+    padding: 10px 50px;
+    border: none;
+    border-radius: 0.4rem;
+    font-size: 20px;
+    font-weight: 400;
+    background-color: white;
+}
+.section__input button:hover{
+    cursor: pointer;
+    background-color: gray;
 }
