@@ -4,7 +4,7 @@ import { BiHappy } from "react-icons/bi";
 import { MdCompress, MdOutlineWaterDrop } from "react-icons/md";
 import "./description.css"
 
-const Description = (weather, units) => {
+const Description = ({weather, units}) => {
   const tempUnit = units === "metric" ? "°C" : "°F";
   const windUnit = units === "metric" ? "m/s" : "m/h";
 
@@ -37,38 +37,20 @@ const Description = (weather, units) => {
       title: "wind speed",
       data: weather.speed.toFixed(),
       unit: windUnit,
-    },
+    }
   ];
   return (
     <div className='section section__description'>
-      <div className="card">
-        <div className="description__card-icon">
-        <FaArrowDown />
-        <small>Min</small>
-        </div>
-        <h2>32°C</h2>
+      {cards.map((id, icon, title, data, unit) =>{
+        <div className="card" key={id}>
+          <div className="description__card-icon">
+          <FaArrowDown />
+          <small>Min</small>
+          </div>
+          <h2>32°C</h2>
       </div>
-      <div className="card">
-        <div className="description__card-icon">
-        <FaArrowDown />
-        <small>Min</small>
-        </div>
-        <h2>32°C</h2>
-      </div>
-      <div className="card">
-        <div className="description__card-icon">
-        <FaArrowDown />
-        <small>Min</small>
-        </div>
-        <h2>32°C</h2>
-      </div>
-      <div className="card">
-        <div className="description__card-icon">
-        <FaArrowDown />
-        <small>min</small>
-        </div>
-        <h2>32°C</h2>
-      </div>
+
+        })}
     </div>
   )
 }
