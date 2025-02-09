@@ -1,10 +1,13 @@
 import React from 'react'
+import { FaArrowDown } from "react-icons/fa";
 
 const Description = () => {
   return (
     <div className='section section__description'>
-      <div className='discription__card-icon'>
-
+      <div className="card">
+        <div className="description__card-icon">
+        <FaArrowDown />
+        </div>
       </div>
     </div>
   )
