@@ -5,7 +5,7 @@ import Description from "./components/Description";
 import { getWeather } from "./weatherServices";
 
 function App() {
-  const [city, setCity] = useState("Gambela")
+  const [city, setCity] = useState("Moscow")
   const [weather, setWeather] = useState(null);
   const [units, setUnits] = useState('metric');
   const [bg, setbg] = useState(hotImage);
@@ -28,7 +28,7 @@ function App() {
       } else {
         // Handle the case where data is null or undefined
         setWeather(null);
-        setCity('Gambela')
+        setCity('Moscow')
       }
     };
     fetchgetWeather();
