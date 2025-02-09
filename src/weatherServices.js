@@ -2,7 +2,6 @@ const key = "51a17df105e024f49c4eb74868e5f16e";
 
 // get icon url
 const findIconUrl = (iconId) =>{
-
     return `https://openweathermap.org/img/wn/${iconId}@2x.png`
 }
 
@@ -31,7 +30,12 @@ const getWeather = async (city, units="metric") => {
         } = data;
         const {description, icon} = weather[0];
 
+        function convertCountryCode(country){
+            let regionName = new Intl.DisplayNames(["eng"], {type:'region'});
+            return regionName.of (country);
+          }
+          const countryName = convertCountryCode(country);
      return {description, iconURL: findIconUrl(icon), temp, feels_like, humidity, pressure, 
-        speed, country, name}; // Return the data
+        speed, country: countryName, name}; // Return the data
   };
   export {getWeather}
