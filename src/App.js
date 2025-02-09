@@ -10,23 +10,29 @@ function App() {
   const [units, setUnits] = useState('metric');
   const [bg, setbg] = useState(hotImage);
 
-  useEffect(() =>{
-      const fetchgetWeather = async()=>{
-        const data = await getWeather(city, units);
-        // console.log(data);
-        setWeather(data)
+  useEffect(() => {
+    const fetchgetWeather = async () => {
+      const data = await getWeather(city, units);
 
-      // dynamic background
-      const threshold = units ==="metric"? 20:60;
-      if(data.temp <= threshold){
-        setbg(coldImage)
-      }else{
-        setbg(hotImage);
-      }
+      // Check if data is valid
+      if (data) {
+        setWeather(data);
 
+        // dynamic background
+        const threshold = units === "metric" ? 20 : 60;
+        if (data.temp <= threshold) {
+          setbg(coldImage);
+        } else {
+          setbg(hotImage);
+        }
+      } else {
+        // Handle the case where data is null or undefined
+        setWeather(null);
+        setCity('Gambela')
       }
-      fetchgetWeather()
-  }, [units, city])
+    };
+    fetchgetWeather();
+  }, [units, city]);
 
   const handlingClick = (e) =>{
     const button = e.currentTarget;
@@ -57,7 +63,6 @@ function App() {
           <div className="section section__temperature">
             <div className="weather__info">
               <h3>{weather.name}, {weather.country}</h3>
-              <p>date</p>
               <img src={weather.iconURL}alt="weatherIcon"/>
               <h3>{weather.description}</h3>
             </div>
