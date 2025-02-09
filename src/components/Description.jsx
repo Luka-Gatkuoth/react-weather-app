@@ -29,7 +29,7 @@ const Description = () => {
       <div className="card">
         <div className="description__card-icon">
         <FaArrowDown />
-        <small>Min</small>
+        <small>min</small>
         </div>
         <h2>32°C</h2>
       </div>
