@@ -1,6 +1,9 @@
 const key = "51a17df105e024f49c4eb74868e5f16e";
 
-
+// get icon url
+const iconUrl = (iconId) =>{
+    `https://openweathermap.org/img/wn/${iconId}@2x.png`
+}
 // Get weather function
 const getWeather = async (city, units="metric") => {
     const base = "https://api.openweathermap.org/data/2.5/weather";
