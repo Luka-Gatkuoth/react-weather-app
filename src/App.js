@@ -6,6 +6,7 @@ import { getWeather } from "./weatherServices";
 
 function App() {
   const [weather, setWeather] = useState(null);
+  const [units, setUnits] = useState('metric');
   useEffect(() =>{
       const fetchgetWeather = async()=>{
         const data = await getWeather("Gambela");
@@ -30,16 +31,14 @@ function App() {
               <h3>{weather.name}, {weather.country}</h3>
               <p>date</p>
               <img src={weather.iconURL}alt="weatherIcon"/>
-              {/* add image here from open weather api */}
-              <img src="" alt="weatherIcon"/>
-              <h3>Cody</h3>
+              <h3>{weather.description}</h3>
             </div>
             <div className="temperature">
-              <h2>34°</h2>
+              <h2>{`${weather.temp.toFixed()} °`}</h2>
             </div>
           </div>
           {/* bottom description */}
-          <Description/>
+          <Description weather={weather}/>
         </div>)}
       </div>
     </div>
