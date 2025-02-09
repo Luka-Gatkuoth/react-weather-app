@@ -5,6 +5,7 @@ import Description from "./components/Description";
 import { getWeather } from "./weatherServices";
 
 function App() {
+  const [city, setCity] = useState()
   const [weather, setWeather] = useState(null);
   const [units, setUnits] = useState('metric');
 
@@ -15,8 +16,18 @@ function App() {
         setWeather(data)
       }
       fetchgetWeather()
-  }, [])
+  }, [units])
 
+  const handlingClick = (e) =>{
+    const button = e.currentTarget;
+    const currentUnit = button.innerText.slice(1)
+    console.log(currentUnit);
+    // checking unit
+
+    const isCelsius = currentUnit === 'C';
+    button.innerText = isCelsius? "°F":"°C"
+    setUnits(isCelsius?"metric":"imperial");
+  }
   
 
   return (
@@ -25,7 +36,7 @@ function App() {
         {weather && ( <div className="container">
           <div className="section section__input">
             <input type="text" name="city" placeholder="Enter the city"/>
-            <button>°F</button>
+            <button onClick={(e) => handlingClick(e)}>°F</button>
           </div>
           <div className="section section__temperature">
             <div className="weather__info">
