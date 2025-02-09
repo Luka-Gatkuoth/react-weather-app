@@ -14,8 +14,17 @@ const getWeather = async (city, units="metric") => {
     }
   
     const data = await response.json(); // Parse the JSON data
-    
     // return data; // Return the data
-    console.log(data);
+
+    // Destructuring weather data
+     const {
+        weather, 
+        main:{temp, feel_likes, humidity, pressure},
+         wind:{speed},
+         sys:{country},
+         name
+        } = data;
+        const {description, icon} = weather[0];
+     return {description, icon, temp, feel_likes, humidity, pressure, speed, country, name}; // Return the data
   };
   export {getWeather}

@@ -7,7 +7,7 @@ import { getWeather } from "./weatherServices";
 function App() {
   useEffect(() =>{
       const fetchgetWeather = async()=>{
-        const data = await getWeather("London");
+        const data = await getWeather("Gambela");
         console.log(data);
       }
       fetchgetWeather()
@@ -30,9 +30,9 @@ function App() {
               <img src="" alt="weatherIcon"/>
               <h3>Cody</h3>
             </div>
-            <diV className="temperature">
+            <div className="temperature">
               <h2>34°</h2>
-            </diV>
+            </div>
           </div>
           {/* bottom description */}
           <Description/>
