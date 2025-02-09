@@ -1,5 +1,7 @@
 import React from 'react'
-import { FaArrowDown } from "react-icons/fa";
+import { FaWind } from "react-icons/fa";
+import { BiHappy } from "react-icons/bi";
+import { MdCompress, MdOutlineWaterDrop } from "react-icons/md";
 import "./description.css"
 
 const Description = () => {

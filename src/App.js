@@ -7,9 +7,10 @@ import { getWeather } from "./weatherServices";
 function App() {
   const [weather, setWeather] = useState(null);
   const [units, setUnits] = useState('metric');
+
   useEffect(() =>{
       const fetchgetWeather = async()=>{
-        const data = await getWeather("Gambela");
+        const data = await getWeather("Gambela", units);
         // console.log(data);
         setWeather(data)
       }
@@ -34,11 +35,11 @@ function App() {
               <h3>{weather.description}</h3>
             </div>
             <div className="temperature">
-              <h2>{`${weather.temp.toFixed()} °`}</h2>
+              <h2>{`${weather.temp.toFixed()} °${units ==="metric"?"C":"F"}`}</h2>
             </div>
           </div>
           {/* bottom description */}
-          <Description weather={weather}/>
+          <Description weather={weather} units={units} />
         </div>)}
       </div>
     </div>
