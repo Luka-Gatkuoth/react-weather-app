@@ -5,18 +5,18 @@ import Description from "./components/Description";
 import { getWeather } from "./weatherServices";
 
 function App() {
-  const [city, setCity] = useState()
+  const [city, setCity] = useState("Gambela")
   const [weather, setWeather] = useState(null);
   const [units, setUnits] = useState('metric');
 
   useEffect(() =>{
       const fetchgetWeather = async()=>{
-        const data = await getWeather("Gambela", units);
+        const data = await getWeather(city, units);
         // console.log(data);
         setWeather(data)
       }
       fetchgetWeather()
-  }, [units])
+  }, [units, city])
 
   const handlingClick = (e) =>{
     const button = e.currentTarget;
@@ -29,13 +29,19 @@ function App() {
     setUnits(isCelsius?"metric":"imperial");
   }
   
-
+  //handling key press
+  const enterkeyPress = (e) =>{
+    if(e.keyCode ===13){
+      setCity(e.currentTarget.value);
+      e.currentTarget.blur();
+    }
+  }
   return (
     <div className="App" style={{background: `url(${hotImage})`}}>
       <div className="overlay">
         {weather && ( <div className="container">
           <div className="section section__input">
-            <input type="text" name="city" placeholder="Enter the city"/>
+            <input onKeyDown={enterkeyPress}type="text" name="city" placeholder="Enter the city"/>
             <button onClick={(e) => handlingClick(e)}>°F</button>
           </div>
           <div className="section section__temperature">
