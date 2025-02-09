@@ -1,9 +1,11 @@
 const key = "51a17df105e024f49c4eb74868e5f16e";
 
 // get icon url
-const iconUrl = (iconId) =>{
-    `https://openweathermap.org/img/wn/${iconId}@2x.png`
+const findIconUrl = (iconId) =>{
+
+    return `https://openweathermap.org/img/wn/${iconId}@2x.png`
 }
+
 // Get weather function
 const getWeather = async (city, units="metric") => {
     const base = "https://api.openweathermap.org/data/2.5/weather";
@@ -17,17 +19,19 @@ const getWeather = async (city, units="metric") => {
     }
   
     const data = await response.json(); // Parse the JSON data
-    // return data; // Return the data
+    //return data; // Return the data
 
     // Destructuring weather data
      const {
         weather, 
-        main:{temp, feel_likes, humidity, pressure},
+        main:{temp, feels_like, humidity, pressure},
          wind:{speed},
          sys:{country},
          name
         } = data;
         const {description, icon} = weather[0];
-     return {description, icon, temp, feel_likes, humidity, pressure, speed, country, name}; // Return the data
+
+     return {description, iconURL: findIconUrl(icon), temp, feels_like, humidity, pressure, 
+        speed, country, name}; // Return the data
   };
   export {getWeather}
