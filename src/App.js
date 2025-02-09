@@ -1,18 +1,21 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import hotImage from "./assets/hot.jpg";
 // import coldImage from "./assets/cold.jpg";
 import Description from "./components/Description";
 import { getWeather } from "./weatherServices";
 
 function App() {
+  const {weather, setWeather} = useState(null);
   useEffect(() =>{
       const fetchgetWeather = async()=>{
         const data = await getWeather("Gambela");
-        console.log(data);
+        // console.log(data);
+        setWeather(data)
       }
       fetchgetWeather()
   }, [])
 
+  
 
   return (
     <div className="App" style={{background: `url(${hotImage})`}}>
