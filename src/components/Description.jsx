@@ -41,18 +41,17 @@ const Description = ({weather, units}) => {
   ];
   return (
     <div className='section section__description'>
-      {cards.map((id, icon, title, data, unit) =>{
+      {cards.map(({ id, icon, title, data, unit }) => (
         <div className="card" key={id}>
           <div className="description__card-icon">
-          <FaArrowDown />
-          <small>Min</small>
+            {icon}
+            <small>{title}</small>
           </div>
-          <h2>32°C</h2>
-      </div>
-
-        })}
+          <h2>{`${data}${unit}`}</h2>
+        </div>
+      ))}
     </div>
-  )
+  );
 }
 
 export default Description;
